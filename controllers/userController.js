@@ -22,11 +22,12 @@ const userController = {
             .catch((err) => res.status(500).json(err));
     },
     updateUser(req, res) {
-        User.findOneAndUpdate({ id_: req.params.userId }, { $set: req.body }, { runValidators: true, new: true })
+        User.findOneAndUpdate({ _id: req.params.userId }, { $set: req.body }, { runValidators: true, new: true })
             .then((data) => {
                 if (!data) {
                     res.status(404).json({ message: 'Error - User not found' })
                 }
+                res.json(data)
             })
             .catch((err) => res.status(500).json(err));
     },
@@ -36,6 +37,7 @@ const userController = {
                 if (!data) {
                     res.status(404).json({ message: 'Error - User not found' })
                 }
+                res.json(data)
             })
             .catch((err) => res.status(500).json(err));
     },
