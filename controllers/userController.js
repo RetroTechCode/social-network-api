@@ -2,7 +2,6 @@ const { User, Thought } = require('../models');
 
 const userController = {
     getUsers(req, res) {
-
     },
     getSingleUser(req, res) {
 
@@ -20,6 +19,8 @@ const userController = {
 
     },
     removeFriend(req, res) {
-        
+
     }
-}
+};
+
+module.exports = userController;
