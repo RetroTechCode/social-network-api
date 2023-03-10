@@ -44,10 +44,24 @@ const thoughtController = {
             .catch((err) => res.status(500).json(err));
     },
     createReaction(req, res) {
-
+        Thought.findOneAndUpdate({ _id: req.params.thoughtId }, { $addToSet: { reactions: req.body } }, { runValidators: true, new: true })
+            .then((data) => {
+                if (!data) {
+                    res.status(404).json({ message: 'Error - Thought not found' })
+                }
+                res.json(data)
+            })
+            .catch((err) => res.status(500).json(err));
     },
     deleteReaction(req, res) {
-
+        Thought.findOneAndUpdate({ _id: req.params.thoughtId }, { $pull: { reactions: { reactionId: req.params.reactionId } } }, { new: true })
+            .then((data) => {
+                if (!data) {
+                    res.status(404).json({ message: 'Error -  Thought not found' })
+                }
+                res.json(data)
+            })
+            .catch((err) => res.status(500).json(err));
     }
 };
 
