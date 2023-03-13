@@ -35,7 +35,7 @@ Along with all of that there is additional information stored to each user, thou
 2. Run "npm start" in order to start the application.
 3. Use [Insomnia](https://insomnia.rest/) to interact with the application!
 
-[Example of application in use](google.com)
+[Example of application in use](https://drive.google.com/file/d/1OhCzWwgDq2X3n3yDu6FjqEkaTKBBCJk4/view)
 
 ## Questions
 
